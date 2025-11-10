@@ -1,0 +1,26 @@
+data:
+  dataname: 'tree' # Available datasets: {'tree'}
+  ntr: 2000000 # Number of training data, which would be re-sampled
+  nte: 100000 # Number of test data
+save_dir: 'tree_LFM' # Directory to save the results
+model:
+  hidden_dim: 256 # Hidden dimension of the neural network
+  num_hidden: 3 # Number of hidden layers
+
+training:
+  L: 8 # Number of blocks
+  hks: [0.025, 0.031, 0.039, 0.049, 0.061, 0.076, 0.095, 0.119, None] # Last is always None = Free block
+  ##
+  num_tk: 1 # Number of random time steps per (x_i, y_i) pair
+  batch_size: 10000 # Batch size
+  max_batch: 50000 # Maximum number of batches
+  ##
+  warm_start: True # Warm start current flow with previous flow
+  lr: 0.0002 # Learning rate
+  lr_decay: 0.99 # Learning rate decay
+  lr_step: 1000 # Frequency of learning rate decay
+  resume: True # Resume training from the last checkpoint
+  
+visualize:
+  viz_freq: 15000 # Frequency of visualization in terms of number of batches
+  num_steps: 15 # How we devide [0,1] or [1,0] into finer steps

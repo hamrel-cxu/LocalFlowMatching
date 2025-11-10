@@ -1,0 +1,25 @@
+data:
+  dataname: 'bsds300' # Available datasets: {'rose'}
+  data_dim: 63
+save_dir: 'bsds300_LFM' # Directory to save the results
+model:
+  hidden_dim: 512 # Hidden dimension of the neural network
+  num_hidden: 4 # Number of hidden layers
+
+training:
+  L: 3
+  hks: [0.25, 0.25, 0.25, None]
+  ##
+  num_tk: 1 # Number of random time steps per (x_i, y_i) pair
+  batch_size: 500 # Batch size
+  max_batch: 30000 # Maximum number of batches
+  ##
+  warm_start: False # Warm start current flow with previous flow
+  lr: 0.002 # Learning rate
+  lr_decay: 0.8 # Learning rate decay
+  lr_step: 4000 # Frequency of learning rate decay
+  resume: True # Resume training from the last checkpoint
+  
+visualize:
+  viz_freq: 5000 # Frequency of visualization in terms of number of batches
+  num_steps: 15 # How we devide [0,1] or [1,0] into finer steps

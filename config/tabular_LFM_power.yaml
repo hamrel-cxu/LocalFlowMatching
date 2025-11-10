@@ -1,0 +1,30 @@
+data:
+  dataname: 'power' # Available datasets: {'rose'}
+  data_dim: 6
+save_dir: 'power_LFM' # Directory to save the results
+model:
+  hidden_dim: 256 # Hidden dimension of the neural network
+  num_hidden: 4 # Number of hidden layers
+
+training:
+  L: 3
+  hks: [0.15, 0.2, 0.26, None]
+  ##
+  #### See InterFlow loss (I.1)
+  num_tk: 1 # Number of random time steps per (x_i, y_i) pair
+  batch_size: 30000
+  max_batch: 100000 # Maximum number of batches
+  ##
+  warm_start: True # Warm start current flow with previous flow
+  lr: 0.005 # Learning rate
+  lr_decay: 0.99 # Learning rate decay
+  lr_step: 1000 # Frequency of learning rate decay
+  resume: True # Resume training from the last checkpoint
+  #### See InterFlow re-weighting time via beta distribution
+  beta_sample_t: None # If this is here, sample t from beta distribution
+  alpha: 1.0
+  beta: 1.0
+  
+visualize:
+  viz_freq: 10000 # Frequency of visualization in terms of number of batches
+  num_steps: 15 # How we devide [0,1] or [1,0] into finer steps

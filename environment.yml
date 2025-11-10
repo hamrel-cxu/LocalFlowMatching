@@ -1,0 +1,21 @@
+name: lfm
+channels:
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - h5py
+  - scipy
+  - matplotlib
+  - tqdm
+  - gputil
+  - psutil
+  - pip:
+      - torchdiffeq
+      - PyYAML
+      - pandas==1.5.3
+      - torch==2.5.1
+      - torchvision==0.20.1
+      - numpy==1.26.4
